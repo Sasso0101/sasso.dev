@@ -1,0 +1,88 @@
+body {
+    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-flow: column wrap;
+    margin: 0 0 0 20px;
+}
+
+
+/* HEADER */
+header {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+/* H1 */
+h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 70px;
+    margin: 20px 0;
+}
+.ciao {
+    font-size: 50px;
+}
+.name {
+    color: #bb5511;
+}
+
+/* Location */
+.location {
+    font-size: 30px;
+    margin: 5px 0;
+}
+.location a {
+    text-decoration: none;
+    color:  black;
+}
+.location a:hover {
+    text-decoration: underline;
+}
+.location i {
+    padding: 5px;
+}
+
+/* Links */
+.links {
+    font-size: 25px;
+    margin: 20px 0;
+    color: black;
+}
+.link {
+    margin: 0 10px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    
+}
+.link a {
+    color: black;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+.link a:hover {
+    text-decoration: underline;
+}
+.links i {
+    padding: 5px;
+}
+
+
+/* PROJECTS */
+.projects {
+    font-size: 20px;
+}
+
+.project p {
+    margin: 10px 0;
+}
+.project a {
+    color: black;
+    transition: all 0.2s;
+}
+.project a:hover {
+    color: #2d58a8;
+}
