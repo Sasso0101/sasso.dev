@@ -75,14 +75,34 @@ h1 {
 .projects {
     font-size: 20px;
 }
-
+.projectsWrapper {
+    display: flex;
+    flex-flow: row wrap;
+}
+.project {
+    width: 33%;
+    border-radius: 40px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 5px;
+}
+.project img {
+    width: 100%;
+    height: auto;
+}
+.project span {
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+}
 .project p {
     margin: 10px 0;
+    text-align: center;
 }
 .project a {
+    text-decoration: none;
     color: black;
-    transition: all 0.2s;
 }
-.project a:hover {
+.project span:hover {
     color: #2d58a8;
 }
