@@ -1,46 +1,55 @@
+@font-face { font-family: Montserrat; src: url('Montserrat-Regular.ttf'); } 
+
 body {
     background-color: #f4f4f4;
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-flow: column wrap;
-    margin: 0;
-}
-
-
-/* HEADER */
-header {
-    display: flex;
-    flex-flow: column wrap;
     justify-content: center;
     margin: 0 auto;
+    padding: 10px;
+    max-width: 800px;
 }
 
 /* H1 */
 h1 {
     color: black;
     font-weight: bold;
-    font-size: 70px;
+    font-size: 65px;
     margin: 20px auto;
     text-align: center;
-}
-.name {
     color: #bb5511;
 }
 
-/* Sub */
-.sub {
-    font-size: 30px;
-    padding: 0 5px;
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
-.sub a {
-    text-decoration: none;
-    color:  black;
+
+.profile {
+    width: 150px;
+    border-radius: 50%;
 }
-.sub a:hover {
-    text-decoration: underline;
+
+.right {
+    margin-left: 10px;
 }
-.sub i {
-    padding: 5px 10px 5px 5px;
+
+/* Subtitle */
+.subtitle {
+    font-size: 20px;
+    line-height: 30px;
+}
+.subtitle:nth-child(1) {
+    padding-bottom: 20px;
+}
+
+a {
+    color: #bb5511;
+}
+
+a:hover {
+    color: white;
+    background-color: #bb5511;
 }
 
 /* Links */
@@ -74,54 +83,52 @@ h1 {
 
 
 /* PROJECTS */
-.projects {
-    font-size: 20px;
-}
-.projects h2 {
-    text-align: center;
-    font-size: 35px;
-}
-.projectsWrapper {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+h2 {
+    margin: 20px 0 10px 0;
 }
 .project {
-    width: 400px;
-    border-radius: 40px;
-    border: 2px solid black;
-    padding: 10px;
-    margin: 5px;
-    background-color: white;
+    margin-bottom: 10px;
 }
-.project img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    border-radius: 40px 40px 0 0;
-}
-.project span {
-    text-decoration: underline;
-    display: block;
-    text-align: center;
-    transition: all 0.5s;
+.project h4 {
+    font-size: 18px;
+    margin: 0 0 10px 0;
 }
 .project p {
-    margin: 10px 0;
-    text-align: center;
+    font-size: 16px;
+    margin: 0;
+    line-height: 25px;
 }
-.project a {
-    text-decoration: none;
-    color: black;
-}
-.project:hover span {
-    color: #bb5511;
+.github {
+    font-size: 18px;
 }
 
+/* FOOTER */
+footer {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+    margin-top: 20px;
+}
+.line {
+    width: 100px;
+    height: 1px;
+    background-color: black;
+}
+footer p {
+    margin: 5px;
+}
 
 /* MEDIA */
-@media (max-width: 867px) {
-    .project {
-        width: 100%;
+@media (max-width: 700px) {
+    .profile {
+        width: 100px;
+    }
+    .subtitle {
+        font-size: 17px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    .github {
+        font-size: 17px;
     }
 }
