@@ -117,6 +117,13 @@ footer p {
     margin: 5px;
 }
 
+.reading {
+    font-size: 18px;
+}
+li {
+    line-height: 30px;
+}
+
 /* MEDIA */
 @media (max-width: 700px) {
     .profile {
