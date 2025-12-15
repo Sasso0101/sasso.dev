@@ -82,7 +82,7 @@ const contacts = [
                 
                 <div class="flex flex-wrap gap-4 sm:gap-6 mt-6 sm:mt-8 text-sm sm:text-base font-bold uppercase tracking-wider">
                     {contacts.map(contact => (
-                        <a target="_blank" href={contact.url} class="text-zinc-600 hover:text-accent-600 dark:hover:text-accent-500 transition-colors border-b border-transparent hover:border-accent-600">
+                        <a target="_blank" href={contact.url} class="text-zinc-600 dark:text-zinc-400 hover:text-accent-600 dark:hover:text-accent-500 transition-colors border-b border-transparent hover:border-accent-600">
                             {contact.name}
                         </a>
                     ))}
@@ -101,7 +101,7 @@ const contacts = [
                             {project.title}
                         </h3>
                     </div>
-                    <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+                    <p class="text-base text-zinc-600 dark:text-zinc-300 leading-relaxed max-w-3xl">
                         {project.desc}
                     </p>
                 </a>
@@ -109,7 +109,7 @@ const contacts = [
         </div>
 
         <div class="mt-8">
-            <a href="https://github.com/sasso0101" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-accent-600 dark:hover:text-accent-500 transition-colors">
+            <a href="https://github.com/sasso0101" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-accent-600 dark:hover:text-accent-500 transition-colors dark:text-zinc-200">
                 View more on GitHub
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
@@ -128,7 +128,7 @@ const contacts = [
                         <div class="text-base text-zinc-700 dark:text-zinc-300 mt-1">
                             {edu.school}
                         </div>
-                        <p class="text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
+                        <p class="text-zinc-500 dark:text-zinc-300 mt-2 leading-relaxed">
                             {edu.details}
                         </p>
                         <p>

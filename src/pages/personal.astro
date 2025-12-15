@@ -79,11 +79,6 @@ const games = [
             </p>
         </div>
 
-        {/* CHANGED LAYOUT:
-           - Used 'columns-1 sm:columns-2 md:columns-3' instead of Grid.
-           - This forces items to fill top-to-bottom first.
-           - 'gap-8' creates space between the columns.
-        */}
         <div class="columns-1 sm:columns-2 md:columns-3 gap-8">
             {games.map((game) => (
                 /* - 'break-inside-avoid' prevents a single item from being split across columns.
@@ -91,7 +86,7 @@ const games = [
                 */
                 <div class="break-inside-avoid flex items-center gap-2 group mb-2">
                     <span class="text-accent-500 text-[10px] opacity-70">●</span>
-                    <span class="text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
+                    <span class="text-sm text-zinc-600 dark:text-zinc-300 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
                         {game}
                     </span>
                 </div>
