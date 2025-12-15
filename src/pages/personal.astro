@@ -1,0 +1,101 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// The list of games provided, sorted alphabetically
+const games = [
+  "Agricola",
+  "Dixit",
+  "Perudo",
+  "Barrage",
+  "Dead of Winter",
+  "Zombicide",
+  "Pandemic",
+  "Catan",
+  "Puerto Rico",
+  "Power Grid",
+  "Tzolkin",
+  "7 Wonders",
+  "7 Wonders Duel",
+  "Wingspan",
+  "Heat: Pedal to the Metal",
+  "Azul",
+  "Carcassonne",
+  "Marco Polo II: In the Service of the Khan",
+  "Ticket to Ride: Europe",
+  "Suburbia",
+  "Secret Hitler",
+  "Kingdomino",
+  "Hive",
+  "Love Letter",
+  "Nova Luna",
+  "BANG!",
+  "Seasons",
+  "Scout",
+  "Terraforming Mars",
+  "Sit Gloria Romae",
+  "Sagrada",
+  "Potion Explosion",
+  "Hero Realms",
+  "Portal of Heroes (Die Portale von Molthar)",
+  "Crosswise",
+  "CuBirds",
+  "Kuhfstein",
+  "Black Orchestra",
+  "Endeavor",
+  "La Compagnia dell'Anello: Trick-Taking Game",
+  "MicroMacro: Crime City",
+  "Exploding Kittens",
+  "Not That Movie!",
+  "That's Not a Hat",
+  "Bruxelles 1893",
+  "Let's Summon Demons",
+  "Terra Nova",
+  "Pandemic: World of Warcraft",
+  "Cascadia",
+  "Mindbug: Battlefruit Kingdom",
+  "Glass Road",
+  "Wriggle Roulette",
+  "Dune: Imperium",
+  "Botanicus",
+  "Il Regno dei Funghi",
+  "Il Fiume d'Oro",
+  "Cities",
+  "Planet Unknown",
+  "Deep Sea Adventure",
+  "Endeavor: Deep Sea",
+  "Nature",
+  "Finca",
+  "Glen More"
+].sort((a, b) => a.localeCompare(b));
+---
+
+<Layout title="Games - Salvatore Andaloro">
+    <section class="mb-20">
+        <h1 class="text-2xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Board Games 🎲</h1>
+        
+        <div class="text-base text-zinc-700 dark:text-zinc-300 mb-10 font-serif leading-relaxed">
+            <p>
+                A collection of board games I have played, listed in alphabetic order. I enjoy strategy and resource management games.
+            </p>
+        </div>
+
+        {/* CHANGED LAYOUT:
+           - Used 'columns-1 sm:columns-2 md:columns-3' instead of Grid.
+           - This forces items to fill top-to-bottom first.
+           - 'gap-8' creates space between the columns.
+        */}
+        <div class="columns-1 sm:columns-2 md:columns-3 gap-8">
+            {games.map((game) => (
+                /* - 'break-inside-avoid' prevents a single item from being split across columns.
+                   - 'mb-2' adds the vertical spacing (since gap-y doesn't exist in columns).
+                */
+                <div class="break-inside-avoid flex items-center gap-2 group mb-2">
+                    <span class="text-accent-500 text-[10px] opacity-70">●</span>
+                    <span class="text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-200 transition-colors">
+                        {game}
+                    </span>
+                </div>
+            ))}
+        </div>
+    </section>
+</Layout>

@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import profileImage from '../assets/profile.png';
+
+const projects = [
+  {
+    title: "The Keypad ⌨️",
+    desc: "A fully programmable USB keypad powered by an Arduino Nano, a TLC5940 LED driver, Cherry MX Black switches and X-keys relegendable keycaps.",
+    link: "https://github.com/Sasso0101/The-Keypad"
+  },
+  {
+    title: "Coronavirus Live 🦠",
+    desc: "A dashboard about covid-19 spread in Italy.",
+    link: "https://sasso0101.github.io/coronavirus/"
+  },
+  {
+    title: "Subitobot 📣",
+    desc: "A Docker container that checks for new listings on subito.it and sends a Telegram notification. Written in Rust.",
+    link: "https://github.com/sasso0101/subitobot/"
+  }
+];
+
+const education = [
+    {
+        degree: "B.Sc. in Computer, Communication and Electronic Engineering",
+        school: "University of Trento",
+        year: "2022-2025",
+        details: "Graduated 110 cum laude. Thesis on accelerating BFS on multicore CPUs.",
+        thesis: "files/thesis.pdf", 
+        slides: "files/slides.pdf",
+        repo: "https://github.com/HicrestLaboratory/MergedCSR"
+    }
+];
+
+const publications = [
+  {
+    authors: "S. D. Andaloro, T. Pasquali, and F. Vella",
+    title: "Cache-optimized BFS on multi-core CPUs",
+    venue: "Proceedings of the 1st FastCode Programming Challenge (FCPC '25)",
+    year: "2025",
+    link: "https://doi.org/10.1145/3711708.3723452"
+  }
+];
+
+const posters = [
+    {
+        title: "Evaluating Memory and Multi-Core Performance of RISC-V Systems on HPC-Driven Workloads",
+        venue: "AI, HPC & QUANTUM event by E4 Engineering",
+        link: "files/poster.pdf"
+    }
+];
+
+const contacts = [
+    { name: "Email", url: "mailto:sasso0101@gmail.com" },
+    { name: "Telegram", url: "https://t.me/sasso0101" },
+    { name: "GitHub", url: "https://github.com/sasso0101" },
+    { name: "LinkedIn", url: "https://linkedin.com/in/salvatoreandaloro" }
+];
+---
+
+<Layout title="Salvatore Andaloro">
+    <section class="mb-16">
+        <div class="flex flex-row gap-6 sm:gap-12 items-start">
+            <div class="shrink-0">
+                <Image 
+                    src={profileImage} 
+                    alt="Salvatore Andaloro" 
+                    class="w-24 h-24 sm:w-40 sm:h-40 object-cover transition-all rounded-full"
+                    loading="eager"
+                />
+            </div>
+            <div class="flex-1">
+                <h1 class="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6 dark:text-zinc-100 tracking-tight text-accent-600">
+                    Salvatore Andaloro
+                </h1>
+                <div class="prose prose-lg sm:prose-xl prose-zinc dark:prose-invert font-serif leading-relaxed text-zinc-700 dark:text-zinc-300">
+                    <p>
+                        👋 Hi there! I'm a Computer Science student at University of Trento.
+                    </p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4 sm:gap-6 mt-6 sm:mt-8 text-sm sm:text-base font-bold uppercase tracking-wider">
+                    {contacts.map(contact => (
+                        <a target="_blank" href={contact.url} class="text-zinc-600 hover:text-accent-600 dark:hover:text-accent-500 transition-colors border-b border-transparent hover:border-accent-600">
+                            {contact.name}
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Projects 👨‍💻</h2>
+        <div class="space-y-6">
+            {projects.map(project => (
+                <a target="_blank" href={project.link} class="group block cursor-pointer">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-1">
+                        <h3 class="text-lg font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-accent-600 dark:group-hover:text-accent-500 group-hover:underline decoration-2 underline-offset-4 transition-colors">
+                            {project.title}
+                        </h3>
+                    </div>
+                    <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+                        {project.desc}
+                    </p>
+                </a>
+            ))}
+        </div>
+
+        <div class="mt-8">
+            <a href="https://github.com/sasso0101" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-zinc-500 hover:text-accent-600 dark:hover:text-accent-500 transition-colors">
+                View more on GitHub
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Education 🎓</h2>
+        <div class="space-y-6">
+            {education.map(edu => (
+                <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-2">
+                    <div class="max-w-2xl">
+                        <h3 class="text-base font-bold text-zinc-900 dark:text-zinc-100">
+                            {edu.degree}
+                        </h3>
+                        <div class="text-base text-zinc-700 dark:text-zinc-300 mt-1">
+                            {edu.school}
+                        </div>
+                        <p class="text-zinc-500 dark:text-zinc-400 mt-2 leading-relaxed">
+                            {edu.details}
+                        </p>
+                        <p>
+                            <a target="_blank" href={edu.repo} class="text-sm font-bold uppercase tracking-wider text-accent-600 hover:underline">
+                                [Repo]
+                            </a>
+                            <a target="_blank" href={edu.thesis} class="text-sm font-bold uppercase tracking-wider text-accent-600 hover:underline ml-2">
+                                [Thesis]
+                            </a>
+                            <a target="_blank" href={edu.slides} class="text-sm font-bold uppercase tracking-wider text-accent-600 hover:underline ml-2">
+                                [Slides]
+                            </a>
+                        </p>
+                    </div>
+                    <span class="text-zinc-400 font-bold uppercase tracking-wider text-sm shrink-0">
+                        {edu.year}
+                    </span>
+                </div>
+            ))}
+        </div>
+    </section>
+
+    <section class="mb-16">
+        <h2 class="text-3xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Publications 🗞️</h2>
+        
+        <div class="mb-6">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 mb-3">Papers</h3>
+            <ul class="list-disc list-outside pl-5 text-base text-zinc-700 dark:text-zinc-300 marker:text-zinc-300 space-y-3">
+                {publications.map((pub) => (
+                    <li class="pl-2">
+                        <span class="font-bold text-zinc-900 dark:text-zinc-100">"{pub.title}"</span>.
+                        {pub.authors}. 
+                        <span class="italic">{pub.venue}</span>, {pub.year}.
+                        <a target="_blank" href={pub.link} class="text-base font-bold uppercase tracking-wider text-accent-600 hover:underline ml-2">
+                            [PDF]
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-400 mb-3">Posters</h3>
+            <ul class="list-disc list-outside pl-5 text-base text-zinc-700 dark:text-zinc-300 marker:text-zinc-300 space-y-3">
+                {posters.map((poster) => (
+                    <li class="pl-2">
+                        <span class="font-bold text-zinc-900 dark:text-zinc-100">"{poster.title}"</span>.
+                        <span class="italic">{poster.venue}</span>.
+                        <a target="_blank" href={poster.link} class="text-base font-bold uppercase tracking-wider text-accent-600 hover:underline ml-2">
+                            [PDF]
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </section>
+</Layout>

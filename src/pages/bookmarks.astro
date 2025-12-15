@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+interface Bookmark {
+    title: string;
+    url: string;
+    desc?: string;
+}
+
+interface Category {
+    name: string;
+    icon: string;
+    items: Bookmark[];
+}
+
+const categories: Category[] = [
+    {
+        name: "Computer Science",
+        icon: "👾",
+        items: [
+            { title: "Crontab guru", url: "https://crontab.guru/", desc: "Quick and simple editor for cron schedule expressions." },
+            { title: "The Rosetta stone for UNIX", url: "https://bhami.com/rosetta.html" },
+            { title: "Intro to compilers", url: "https://web.archive.org/web/20240505185611/https://algo.ing.unimo.it/people/andrea/Didattica/HPC/SlidesPDF/20.%20Optimizing%20Compilers.pdf", desc: "A gentle introduction to how compilers work." },
+            { title: "Compiler Explorer", url: "https://godbolt.org", desc: "Run compilers interactively from your web browser and see the assembly output." },
+            { title: "Polymorphism in Rust", url: "https://www.brandons.me/blog/polymorphism-in-rust", desc: "How Rust handles polymorphism and OOP concepts." }
+        ]
+    },
+    {
+        name: "Math & Probability",
+        icon: "🎲",
+        items: [
+            { title: "Derivation of Taylor series expansion", url: "https://hep.physics.illinois.edu/home/serrede/P435/Lecture_Notes/Derivation_of_Taylor_Series_Expansion.pdf"},
+            { title: "How lucky is too lucky?", url: "https://www.youtube.com/watch?v=8Ko3TdPy0TU", desc: "The Minecraft Speedrunning Dream Controversy Explained." },
+            { title: "The Elo Rating System", url: "https://www.youtube.com/watch?v=AsYfbmp0To0", desc: "For Chess and Beyond." },
+            { title: "Darts in Higher Dimensions", url: "https://www.youtube.com/watch?v=6_yU9eJ0NxA", desc: "Numberphile with 3blue1brown." },
+            { title: "A showoff of Bayes theorem", url: "https://qr.ae/prDwp6", desc: "Visualizing Bayes theorem." },
+            { title: "Law of large numbers ⇏ Gambler's fallacy", url: "https://math.stackexchange.com/a/4227655" },
+            { title: "A geek playing darts", url: "http://www.datagenetics.com/blog/january12012/index.html" },
+            { title: "My Favorite Algorithm Cheats using Probability", url: "https://www.youtube.com/watch?v=lJYufx0bfpw" },
+            { title: "Sum of powers of 2", url: "https://math.stackexchange.com/a/1990146", desc: "Proof using binary representation." }
+        ]
+    },
+    {
+        name: "Finance",
+        icon: "💰",
+        items: [
+            { title: "🇮🇹 Rischio sistemico e rischio diversificabile per pesi di portafoglio diversi", url: "https://www.youtube.com/watch?v=jpNg6x0VpkE" }
+        ]
+    },
+    {
+        name: "Signal Processing",
+        icon: "📡",
+        items: [
+            { title: "What is phase, time and group delay explained intuitively", url: "https://dsp.stackexchange.com/a/66050/69785" }
+        ]
+    },
+    {
+        name: "Trains",
+        icon: "🚂",
+        items: [
+            { title: "OpenRailwayMap", url: "https://www.openrailwaymap.org", desc: "Global map of railway infrastructure." },
+            { title: "Statistics of trains in Italy", url: "https://trainstats.altervista.org/", desc: "Statistics of trains operated by Trenitalia." },
+            { title: "Live departure board (RFI)", url: "https://www.rfi.it/it/stazioni/pagine-stazioni/servizi-di-qualita/informazioni-al-pubblico/monitor-arrivi-partenze-live.html", desc: "Real-time train status for Italian stations." }
+        ]
+    }
+];
+---
+
+<Layout title="Bookmarks - Salvatore Andaloro">
+    <h1 class="text-2xl font-bold mb-6 text-zinc-900 dark:text-zinc-100">Bookmarks 🔖</h1>
+        
+    <div class="text-base text-zinc-700 dark:text-zinc-300 mb-10 font-serif leading-relaxed">
+        <p>
+            A collection of interesting nodes found on the web.
+        </p>
+    </div>
+
+    <div class="space-y-16">
+        {categories.map(category => (
+            <section>
+                <h2 class="text-lg font-bold mb-6 text-accent-600 dark:text-accent-500 uppercase tracking-widest flex items-center gap-2">
+                    <span class="text-zinc-400 select-none">{category.icon}</span> {category.name}
+                </h2>
+                
+                <ul class="space-y-6">
+                    {category.items.map(item => (
+                        <li class="group">
+                            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-4">
+                                <a href={item.url} target="_blank" rel="noopener noreferrer" class="font-bold text-lg text-zinc-900 dark:text-zinc-100 hover:text-accent-600 dark:hover:text-accent-400 hover:underline decoration-dashed underline-offset-4 transition-colors">
+                                    {item.title}
+                                </a>
+                                <span class="hidden sm:inline-block flex-1 border-b border-dashed border-zinc-300 dark:border-zinc-800 relative -top-1.5 opacity-50"></span>
+                                <span class="text-xs text-zinc-400 font-mono shrink-0">
+                                    [{new URL(item.url).hostname.replace('www.', '')}]
+                                </span>
+                            </div>
+                            {item.desc && (
+                                <p class="text-sm text-zinc-500 mt-1 pl-0 sm:pl-0 font-mono">
+                                    <span class="text-zinc-300 dark:text-zinc-700 select-none">// </span>
+                                    {item.desc}
+                                </p>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </section>
+        ))}
+    </div>
+</Layout>
